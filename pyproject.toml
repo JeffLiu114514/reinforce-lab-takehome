@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "research-agent-graph"
+version = "0.1.0"
+description = "Claim graph + contradiction finder research agent"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Unknown"}]
+
+dependencies = [
+  "langchain>=0.2.12",
+  "langchain-community>=0.2.10",
+  "langchain-google-genai>=1.0.7",
+  "fastapi>=0.115",
+  "uvicorn>=0.30",
+  "pydantic>=2.7",
+  "httpx>=0.27",
+  "trafilatura>=1.9",
+  "beautifulsoup4>=4.12",
+  "diskcache>=5.6",
+  "python-dotenv>=1.0",
+  "ddgs>=4.1.1",
+  "rapidfuzz>=3.9",
+  "scikit-learn>=1.4",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "pytest-sugar>=1.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.package-data]
+agent = ["web/*.html", "web/*.css", "web/*.js"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+pythonpath = ["src"]
+markers = [
+  "integration: marks tests that hit external web/LLM"
+]

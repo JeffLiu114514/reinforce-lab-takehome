@@ -1,0 +1,26 @@
+{
+  "provider_weights": {
+    "semantic_scholar": 1.0,
+    "arxiv": 0.9,
+    "duckduckgo": 0.7
+  },
+  "source_type_weights": {
+    "paper": 1.0,
+    "preprint": 0.9,
+    "report": 0.8,
+    "blog": 0.6,
+    "news": 0.6,
+    "other": 0.5
+  },
+  "domain_overrides": {
+    "arxiv.org": 0.9,
+    "ibm.com": 0.8
+  },
+  "verification": {
+    "fuzzy_threshold": 85,
+    "keep_unverified": false
+  },
+  "clustering": {
+    "similarity_threshold": 0.8
+  }
+}

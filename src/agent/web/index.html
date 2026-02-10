@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research Agent Console</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" defer></script>
+</head>
+<body>
+  <div class="backdrop"></div>
+  <main class="shell">
+    <header class="hero card stagger-1">
+      <div>
+        <p class="eyebrow">Research Agent</p>
+        <h1>Run, Inspect, and Iterate</h1>
+        <p class="subtitle">Submit a prompt, execute the pipeline, and inspect report, graph, ledger, and metrics from one page.</p>
+      </div>
+      <div class="hero-meta">
+        <span class="chip">Gemini-ready</span>
+        <span class="chip">Trace + Metrics</span>
+      </div>
+    </header>
+
+    <section class="layout">
+      <form id="run-form" class="card form-panel stagger-2">
+        <h2>Run Settings</h2>
+
+        <label for="prompt">Prompt</label>
+        <textarea id="prompt" name="prompt" rows="7" required placeholder="Ask a research question..."></textarea>
+
+        <div class="grid-two">
+          <div>
+            <label for="k_per_query">k per query</label>
+            <input id="k_per_query" name="k_per_query" type="number" min="1" max="10" value="8" />
+          </div>
+          <div>
+            <label for="max_urls">max urls</label>
+            <input id="max_urls" name="max_urls" type="number" min="1" max="100" value="30" />
+          </div>
+        </div>
+
+        <label for="config_path">Config path</label>
+        <input id="config_path" name="config_path" type="text" value="config/source_weights.json" />
+
+        <label for="out_dir">Output directory</label>
+        <input id="out_dir" name="out_dir" type="text" value="artifacts" />
+
+        <label for="google_model">Model (optional override)</label>
+        <input id="google_model" name="google_model" type="text" placeholder="gemini-2.5-flash" />
+
+        <label for="google_api_key">API key (optional override)</label>
+        <input id="google_api_key" name="google_api_key" type="password" placeholder="AIza..." />
+
+        <div class="actions">
+          <button id="run-btn" type="submit">Run Agent</button>
+          <button id="sample-btn" type="button" class="secondary">Use Sample Prompt</button>
+          <button id="clear-btn" type="button" class="secondary">Clear Outputs</button>
+        </div>
+      </form>
+
+      <section class="card status-panel stagger-3">
+        <h2>Status</h2>
+        <p id="status-text" class="status">Idle.</p>
+        <div id="summary" class="summary-grid"></div>
+        <div id="file-paths" class="paths"></div>
+      </section>
+    </section>
+
+    <section class="card output-panel stagger-4">
+      <div class="outcome">
+        <h2>Conclusion</h2>
+        <div id="conclusion" class="conclusion"></div>
+      </div>
+
+      <div class="graph-block">
+        <h2>Claim Graph</h2>
+        <div id="graph-render" class="graph-render"></div>
+      </div>
+
+      <div class="files-block">
+        <h2>Artifacts</h2>
+        <div class="tabs">
+          <button type="button" class="tab active" data-tab="report">report.md</button>
+          <button type="button" class="tab" data-tab="graph">graph.mmd</button>
+          <button type="button" class="tab" data-tab="ledger">ledger.json</button>
+          <button type="button" class="tab" data-tab="trace">trace.json</button>
+        </div>
+
+        <article id="report" class="tab-content active">
+          <pre id="report-content" class="viewer"></pre>
+        </article>
+        <article id="graph" class="tab-content">
+          <pre id="graph-content" class="viewer"></pre>
+        </article>
+        <article id="ledger" class="tab-content">
+          <pre id="ledger-content" class="viewer"></pre>
+        </article>
+        <article id="trace" class="tab-content">
+          <pre id="trace-content" class="viewer"></pre>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python caches / tooling
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Packaging / build
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
+
+# Logs
+*.log
+
+# Local secrets / environment
+.env
+.env.*
+!.env.example
+
+# Local runtime/cache outputs
+artifacts/
+**/artifacts/
+.cache/
+**/.cache/
