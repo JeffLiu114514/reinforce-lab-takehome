@@ -118,20 +118,20 @@ At a high level, the system is a staged pipeline where every report claim is bac
 ```mermaid
 flowchart LR
   A[Prompt] --> B[Planner]
-  B --> C[Query Specs + Provider Hints]
+  B --> C[Query Specs and Provider Hints]
   C --> D[Search Router]
   D --> E[Search Providers]
-  E --> F[URLs + Metadata]
-  F --> G[Fetcher + Text Extraction]
-  G --> H[Evidence Extractor + Verification]
+  E --> F[URLs and Metadata]
+  F --> G[Fetcher and Text Extraction]
+  G --> H[Evidence Extractor and Verification]
   H --> I[Evidence Cards]
   I --> J[Claim Builder]
   J --> K[Claim Clustering]
-  K --> L[Claim Graph (Edges)]
+  K --> L[Claim Graph Edges]
   L --> M[Contradiction Resolver]
-  M --> N[Metrics + Confidence]
-  N --> O[Ledger + Trace]
-  O --> P[Report.md + Graph.mmd]
+  M --> N[Metrics and Confidence]
+  N --> O[Ledger and Trace]
+  O --> P[Report and Graph Artifacts]
 ```
 
 ### Where to Look in Code
