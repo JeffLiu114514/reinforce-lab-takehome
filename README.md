@@ -1,6 +1,4 @@
-# SDE Take-Home: AI Agent for Web Research
-
-Build a minimal-but-solid research agent that plans, searches, extracts evidence, and produces a Markdown report. This repo includes a working CLI, a simple Web UI, and structured artifacts (`ledger.json`, `trace.json`, and a Mermaid claim graph).
+This repo includes a working CLI, a simple Web UI, and structured artifacts (`ledger.json`, `trace.json`, and a Mermaid claim graph).
 
 ## Take-Home Goals (Mapped to This Repo)
 
